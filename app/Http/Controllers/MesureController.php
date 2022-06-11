@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Client;
+use Illuminate\Http\Request;
+use App\Models\Mesure;
 
 
-class ClientController extends Controller
+class MesureController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +16,8 @@ class ClientController extends Controller
      */
     public function index()
     {
-        return view('Client/liste', [
-            'clients' => Client::all()
+        return view('Mesure/liste', [
+            'mesures' => Mesure::all()
         ]);
     }
 
@@ -27,7 +28,9 @@ class ClientController extends Controller
      */
     public function create()
     {
-        return view('Client/formulaire');
+        return view('Mesure/formulaire', [
+            'clients' => Client::all()
+        ]);
     }
 
     /**
@@ -38,14 +41,8 @@ class ClientController extends Controller
      */
     public function store(Request $request)
     {
-        Client::create([
-            'nom' => $request->nom,
-            'prenom' => $request->prenom,
-            'telephone' => $request->telephone,
-            'adresse' => $request->adresse,
-            'email' => $request->email,
-        ]);
-        return redirect()->route('gestion_couture.index');
+        Mesure::create($request->all());
+        return redirect()->route('gestion_couture3.index');
     }
 
     /**
@@ -56,8 +53,8 @@ class ClientController extends Controller
      */
     public function show($id)
     {
-        return view('Client/show', [
-            'finds' => Client::find($id),
+        return view('Mesure/show', [
+            'finds' => Mesure::find($id),
         ]);
     }
 
@@ -69,8 +66,8 @@ class ClientController extends Controller
      */
     public function edit($id)
     {
-        return view('Client/edit', [
-            'finds' => Client::find($id),
+        return view('Mesure/edit', [
+            'finds' => Mesure::find($id),
         ]);
     }
 
@@ -83,10 +80,10 @@ class ClientController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $clt = Client::find($id);
-        $clt->update($request->all());
+        $mes = Mesure::find($id);
+        $mes->update($request->all());
 
-        return redirect()->route('gestion_couture.index');
+        return redirect()->route('gestion_couture3.index');
     }
 
     /**
@@ -97,9 +94,9 @@ class ClientController extends Controller
      */
     public function destroy($id)
     {
-        $clt = Client::find($id);
-        $clt->delete();
+        $mes = Mesure::find($id);
+        $mes->delete();
 
-        return redirect()->route('gestion_couture.index');
+        return redirect()->route('gestion_couture3.index');
     }
 }

@@ -2,6 +2,12 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ClientController;
+use App\Http\Controllers\ModeleController;
+use App\Http\Controllers\MesureController;
+
+
+use App\Http\Controllers\HomeController;
+
 
 
 /*
@@ -16,17 +22,19 @@ use App\Http\Controllers\ClientController;
 */
 
 Route::get('/', function () {
-    return view('layouts.main');
+    return view('welcome');
 });
 
-// Route::get('formulaire_client', function () {
-//     return view('client');
-// });
+Auth::routes();
 
-// Route::get('liste_client', function () {
-//     return view('liste_client');
-// });
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::resource('gestion_couture', ClientController::class);
+Route::resource('gestion_couture2', ModeleController::class);
+Route::resource('gestion_couture3', MesureController::class);
+
+
 
 Route::get('supprimer_couture/{id}', [ClientController::class, 'destroy']);
+Route::get('supprimer_couture2/{id}', [ModeleController::class, 'destroy']);
+Route::get('supprimer_couture3/{id}', [MesureController::class, 'destroy']);

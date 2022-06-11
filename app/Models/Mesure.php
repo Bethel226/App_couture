@@ -5,19 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Client extends Model
+class Mesure extends Model
 {
     use HasFactory;
 
     protected $guarded = [];
 
-    public function Mesure()
+    public function Client()
     {
-        return $this->hasOne(Mesure::class);
-    }
-
-    public function Paiement()
-    {
-        return $this->hasOne(Paiement::class);
+        return $this->belongsTo(Client::class, 'clients_id');
     }
 }

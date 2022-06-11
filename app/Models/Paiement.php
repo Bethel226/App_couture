@@ -5,19 +5,18 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Client extends Model
+class Paiement extends Model
 {
     use HasFactory;
 
     protected $guarded = [];
 
-    public function Mesure()
+    public function Client()
     {
-        return $this->hasOne(Mesure::class);
+        return $this->belongsTo(Client::class);
     }
-
-    public function Paiement()
+    public function Modele()
     {
-        return $this->hasOne(Paiement::class);
+        return $this->belongsTo(Modele::class);
     }
 }

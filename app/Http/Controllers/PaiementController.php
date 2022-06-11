@@ -3,10 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Client;
 
-
-class ClientController extends Controller
+class PaiementController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +13,7 @@ class ClientController extends Controller
      */
     public function index()
     {
-        return view('Client/liste', [
-            'clients' => Client::all()
-        ]);
+        //
     }
 
     /**
@@ -27,7 +23,7 @@ class ClientController extends Controller
      */
     public function create()
     {
-        return view('Client/formulaire');
+        //
     }
 
     /**
@@ -38,14 +34,7 @@ class ClientController extends Controller
      */
     public function store(Request $request)
     {
-        Client::create([
-            'nom' => $request->nom,
-            'prenom' => $request->prenom,
-            'telephone' => $request->telephone,
-            'adresse' => $request->adresse,
-            'email' => $request->email,
-        ]);
-        return redirect()->route('gestion_couture.index');
+        //
     }
 
     /**
@@ -56,9 +45,7 @@ class ClientController extends Controller
      */
     public function show($id)
     {
-        return view('Client/show', [
-            'finds' => Client::find($id),
-        ]);
+        //
     }
 
     /**
@@ -69,9 +56,7 @@ class ClientController extends Controller
      */
     public function edit($id)
     {
-        return view('Client/edit', [
-            'finds' => Client::find($id),
-        ]);
+        //
     }
 
     /**
@@ -83,10 +68,7 @@ class ClientController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $clt = Client::find($id);
-        $clt->update($request->all());
-
-        return redirect()->route('gestion_couture.index');
+        //
     }
 
     /**
@@ -97,9 +79,6 @@ class ClientController extends Controller
      */
     public function destroy($id)
     {
-        $clt = Client::find($id);
-        $clt->delete();
-
-        return redirect()->route('gestion_couture.index');
+        //
     }
 }
