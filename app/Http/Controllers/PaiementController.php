@@ -3,6 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Paiement;
+use App\Models\Client;
+use App\Models\Modele;
+
+
+
 
 class PaiementController extends Controller
 {
@@ -13,7 +19,9 @@ class PaiementController extends Controller
      */
     public function index()
     {
-        //
+        return view('Paiement.liste', [
+            'paiements' => Paiement::all()
+        ]);
     }
 
     /**
@@ -23,7 +31,11 @@ class PaiementController extends Controller
      */
     public function create()
     {
-        //
+        return view('Paiement.formulaire', [
+            'clients' => Client::all(),
+            'modeles' => Modele::all()
+
+        ]);
     }
 
     /**
@@ -34,7 +46,8 @@ class PaiementController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Paiement::create($request->all());
+        return redirect()->route('gestion_paiement.index');
     }
 
     /**
@@ -45,7 +58,9 @@ class PaiementController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('Paiement.show', [
+            'finds' => Paiement::find($id),
+        ]);
     }
 
     /**
@@ -56,7 +71,9 @@ class PaiementController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('Paiement.edit', [
+            'finds' => Paiement::find($id),
+        ]);
     }
 
     /**
@@ -68,7 +85,10 @@ class PaiementController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $paie = Paiement::find($id);
+        $paie->update($request->all());
+
+        return redirect()->route('gestion_paiement.index');
     }
 
     /**
@@ -79,6 +99,9 @@ class PaiementController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $paie = Paiement::find($id);
+        $paie->delete();
+
+        return redirect()->route('gestion_paiement.index');
     }
 }

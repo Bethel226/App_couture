@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\ModeleController;
 use App\Http\Controllers\MesureController;
+use App\Http\Controllers\PaiementController;
+
 
 
 use App\Http\Controllers\HomeController;
@@ -29,12 +31,15 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::resource('gestion_couture', ClientController::class);
-Route::resource('gestion_couture2', ModeleController::class);
-Route::resource('gestion_couture3', MesureController::class);
+Route::resource('gestion_client', ClientController::class);
+Route::resource('gestion_modele', ModeleController::class);
+Route::resource('gestion_mesure', MesureController::class);
+Route::resource('gestion_paiement', PaiementController::class);
 
 
 
-Route::get('supprimer_couture/{id}', [ClientController::class, 'destroy']);
-Route::get('supprimer_couture2/{id}', [ModeleController::class, 'destroy']);
-Route::get('supprimer_couture3/{id}', [MesureController::class, 'destroy']);
+
+Route::get('supprimer_client/{id}', [ClientController::class, 'destroy']);
+Route::get('supprimer_modele/{id}', [ModeleController::class, 'destroy']);
+Route::get('supprimer_mesure/{id}', [MesureController::class, 'destroy']);
+Route::get('supprimer_paiement/{id}', [PaiementController::class, 'destroy']);

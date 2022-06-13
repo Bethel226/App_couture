@@ -16,7 +16,7 @@ class MesureController extends Controller
      */
     public function index()
     {
-        return view('Mesure/liste', [
+        return view('Mesure.liste', [
             'mesures' => Mesure::all()
         ]);
     }
@@ -28,7 +28,7 @@ class MesureController extends Controller
      */
     public function create()
     {
-        return view('Mesure/formulaire', [
+        return view('Mesure.formulaire', [
             'clients' => Client::all()
         ]);
     }
@@ -42,7 +42,7 @@ class MesureController extends Controller
     public function store(Request $request)
     {
         Mesure::create($request->all());
-        return redirect()->route('gestion_couture3.index');
+        return redirect()->route('gestion_mesure.index');
     }
 
     /**
@@ -53,7 +53,7 @@ class MesureController extends Controller
      */
     public function show($id)
     {
-        return view('Mesure/show', [
+        return view('Mesure.show', [
             'finds' => Mesure::find($id),
         ]);
     }
@@ -66,7 +66,7 @@ class MesureController extends Controller
      */
     public function edit($id)
     {
-        return view('Mesure/edit', [
+        return view('Mesure.edit', [
             'finds' => Mesure::find($id),
         ]);
     }
@@ -83,7 +83,7 @@ class MesureController extends Controller
         $mes = Mesure::find($id);
         $mes->update($request->all());
 
-        return redirect()->route('gestion_couture3.index');
+        return redirect()->route('gestion_mesure.index');
     }
 
     /**
@@ -97,6 +97,6 @@ class MesureController extends Controller
         $mes = Mesure::find($id);
         $mes->delete();
 
-        return redirect()->route('gestion_couture3.index');
+        return redirect()->route('gestion_mesure.index');
     }
 }

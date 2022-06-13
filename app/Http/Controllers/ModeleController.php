@@ -15,7 +15,7 @@ class ModeleController extends Controller
      */
     public function index()
     {
-        return view('Modele/liste', [
+        return view('Modele.liste', [
             'modeles' => Modele::all()
         ]);
     }
@@ -27,7 +27,7 @@ class ModeleController extends Controller
      */
     public function create()
     {
-        return view('Modele/formulaire');
+        return view('Modele.formulaire');
     }
 
     /**
@@ -41,9 +41,9 @@ class ModeleController extends Controller
         Modele::create([
             'nom' => $request->nom,
             'prix' => $request->prix,
-            'photo' => $request->photo->store('img_couture2', 'public')
+            'photo' => $request->photo->store('img_modele', 'public')
         ]);
-        return redirect()->route('gestion_couture2.index');
+        return redirect()->route('gestion_modele.index');
     }
 
     /**
@@ -54,7 +54,7 @@ class ModeleController extends Controller
      */
     public function show($id)
     {
-        return view('Modele/show', [
+        return view('Modele.show', [
             'finds' => Modele::find($id),
         ]);
     }
@@ -67,7 +67,7 @@ class ModeleController extends Controller
      */
     public function edit($id)
     {
-        return view('Modele/edit', [
+        return view('Modele.edit', [
             'finds' => Modele::find($id),
         ]);
     }
@@ -84,7 +84,7 @@ class ModeleController extends Controller
         $mdl = Modele::find($id);
         $mdl->update($request->all());
 
-        return redirect()->route('gestion_couture2.index');
+        return redirect()->route('gestion_modele.index');
     }
 
     /**
@@ -98,6 +98,6 @@ class ModeleController extends Controller
         $mdl = Modele::find($id);
         $mdl->delete();
 
-        return redirect()->route('gestion_couture2.index');
+        return redirect()->route('gestion_modele.index');
     }
 }

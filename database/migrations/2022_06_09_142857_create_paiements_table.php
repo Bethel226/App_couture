@@ -18,7 +18,7 @@ class CreatePaiementsTable extends Migration
             $table->string('date');
             $table->integer('total');
             $table->integer('avance');
-            $table->integer('reste');
+            $table->integer('reste')->nullable();
             $table->unsignedBigInteger('clients_id')->unsigned();
             $table->foreign('clients_id')->references('id')->on('clients')->onDelete('cascade')->onUpdate('cascade');
             $table->unsignedBigInteger('modeles_id')->unsigned();

@@ -13,10 +13,10 @@ class Paiement extends Model
 
     public function Client()
     {
-        return $this->belongsTo(Client::class);
+        return $this->belongsTo(Client::class, 'clients_id');
     }
     public function Modele()
     {
-        return $this->belongsTo(Modele::class);
+        return $this->belongsTo(Modele::class, 'modeles_id');
     }
 }

@@ -1,14 +1,14 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="container shadow p-3 mb-5 bg-body rounded">
     <div class="row justify-content-center">
         <div class="col-md-12">
             @include('require.header')
             <marquee behavior="alternate">
                 <h2 class=" text-center">Bienvenue dans Gestion Couture</h2>
             </marquee>
-            <div id="carouselExampleDark" class="carousel carousel-dark slide shadow p-3 mb-2 bg-body rounded" data-bs-ride="carousel" style="background:linear-gradient(to bottom, #fff,red)">
+            <div id="carouselExampleDark" class="carousel carousel-dark slide shadow p-3 mb-2 bg-body rounded" data-bs-ride="carousel" style="background:linear-gradient(to bottom, #fff,green)">
                 <div class="carousel-indicators">
                     <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
                     <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>

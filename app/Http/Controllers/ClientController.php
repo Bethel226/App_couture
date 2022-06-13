@@ -15,7 +15,7 @@ class ClientController extends Controller
      */
     public function index()
     {
-        return view('Client/liste', [
+        return view('Client.liste', [
             'clients' => Client::all()
         ]);
     }
@@ -27,7 +27,7 @@ class ClientController extends Controller
      */
     public function create()
     {
-        return view('Client/formulaire');
+        return view('Client.formulaire');
     }
 
     /**
@@ -45,7 +45,7 @@ class ClientController extends Controller
             'adresse' => $request->adresse,
             'email' => $request->email,
         ]);
-        return redirect()->route('gestion_couture.index');
+        return redirect()->route('gestion_client.index');
     }
 
     /**
@@ -56,7 +56,7 @@ class ClientController extends Controller
      */
     public function show($id)
     {
-        return view('Client/show', [
+        return view('Client.show', [
             'finds' => Client::find($id),
         ]);
     }
@@ -69,7 +69,7 @@ class ClientController extends Controller
      */
     public function edit($id)
     {
-        return view('Client/edit', [
+        return view('Client.edit', [
             'finds' => Client::find($id),
         ]);
     }
@@ -86,7 +86,7 @@ class ClientController extends Controller
         $clt = Client::find($id);
         $clt->update($request->all());
 
-        return redirect()->route('gestion_couture.index');
+        return redirect()->route('gestion_client.index');
     }
 
     /**
@@ -100,6 +100,6 @@ class ClientController extends Controller
         $clt = Client::find($id);
         $clt->delete();
 
-        return redirect()->route('gestion_couture.index');
+        return redirect()->route('gestion_client.index');
     }
 }
