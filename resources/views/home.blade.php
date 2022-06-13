@@ -8,7 +8,7 @@
             <marquee behavior="alternate">
                 <h2 class=" text-center">Bienvenue dans Gestion Couture</h2>
             </marquee>
-            <div id="carouselExampleDark" class="carousel carousel-dark slide shadow p-3 mb-2 bg-body rounded" data-bs-ride="carousel" style="background:linear-gradient(to bottom, #fff,green)">
+            <div id="carouselExampleDark" class="carousel carousel-dark slide shadow p-3 mb-2 bg-body rounded" data-bs-ride="carousel">
                 <div class="carousel-indicators">
                     <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
                     <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>

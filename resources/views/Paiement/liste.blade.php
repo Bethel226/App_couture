@@ -17,9 +17,9 @@
                         <th scope="col">Numéro</th>
                         <th scope="col">Nom</th>
                         <th scope="col">Prénom</th>
-                        <th scope="col">Téléphone</th>
-                        <th scope="col">Adresse</th>
-                        <th scope="col">Email</th>
+                        <th scope="col">Total</th>
+                        <th scope="col">Avance</th>
+                        <th scope="col">Reste</th>
                         <th colspan="3" class="text-center">Actions</th>
                     </tr>
                 </thead>
@@ -29,9 +29,9 @@
                         <th scope="row">{{$paiement->id}}</th>
                         <td>{{$paiement->Client->nom}}</td>
                         <td>{{$paiement->Client->prenom}}</td>
-                        <td>{{$paiement->Client->telephone}}</td>
-                        <td>{{$paiement->Client->adresse}}</td>
-                        <td>{{$paiement->Client->email}}</td>
+                        <td>{{$paiement->total}}</td>
+                        <td>{{$paiement->avance}}</td>
+                        <td>{{$paiement->reste}}</td>
                         <td> <a class="button" href="{{route('gestion_paiement.show', [$paiement->id]) }}"><img src="{{ asset('Images/more.png') }}" style="width:30px;height:30px" alt=""></a> </td>
                         <td> <a class="button" href="{{route('gestion_paiement.edit', [$paiement->id]) }}"><img src="{{ asset('Images/edit.png') }}" style="width:30px;height:30px" alt=""></a> </td>
                         <td><a class="button" href="{{url('supprimer_paiement/'.$paiement->id) }}"><img src="{{ asset('Images/del.png') }}" style="width:30px;height:30px" alt=""></a></td>
