@@ -41,7 +41,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Reste (FCFA)</label>
-                    <input type="number" class="form-control" min="5000" name="reste" id="reste" aria-describedby="emailHelp">
+                    <input type="number" onkeyup="this.value='';" class="form-control" min="5000" name="reste" id="reste" aria-describedby="emailHelp">
                 </div>
                 <div class="container d-flex">
                     <div>
